@@ -124,12 +124,14 @@ public class GameManager : MonoBehaviour
                     mode = GameMode.menu;
                     break;
             }
+
+            if (UIManager.timerGame <= 0)
+            {
+                Invoke("BackToMenu", 0);
+                mode = GameMode.menu;
+            }
         }
-        if (UIManager.timerGame <= 0)
-        {
-            Invoke("BackToMenu", 0 );
-            mode = GameMode.menu;
-        }
+        
     }
 
     public static void AddScore(int value) // Function that adds score, called when an object is picked up.
@@ -140,5 +142,6 @@ public class GameManager : MonoBehaviour
     void BackToMenu()
     {
         menuScript.SceneChange(0);
+        print("bomba");
     }
 }

@@ -12,10 +12,15 @@ public class MenuManager : MonoBehaviour
     public GameObject button3;
     public Button level3Button;
 
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        DontDestroyOnLoad(gameObject);
+
 
         if (SceneManager.GetActiveScene().buildIndex == 0)
         {
